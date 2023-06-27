@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # local
     'common.apps.CommonConfig',
+    'shop.apps.ShopConfig',
 ]
 
 MIDDLEWARE = [
