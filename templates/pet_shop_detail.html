@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div class="pet-shop-detail">
+            <h1>{{ object.title }}</h1>
+            <p>Description: {{ object.description }}</p>
+            <p>Price: {{ object.price }}BGN</p>
+            {% if object.location %}
+                <p>Location: {{ object.location }}</p>
+            {% endif %}
+            <p>Stock: {{ object.available_quantity }}</p>
+            <img src="{{ object.main_photo.url }}" alt="No picture">
+            {% for pic in object.pictures.all %}
+                <img src="{{ pic.url }}" alt="No picture">
+            {% endfor %}
+            <p>
+                For contacting the person, you can call him or write him an email:
+            </p>
+            <p>
+                Phone Number: {{ object.user.phone }}
+            </p>
+            <p>
+                Email Address: {{ object.user.email }}
+            </p>
+        </div>
+    </main>
+{% endblock %}

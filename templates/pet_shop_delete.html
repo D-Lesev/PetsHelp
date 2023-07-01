@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div class="pet-shop-delete">
+            <h1>Delete item</h1>
+            <form method="post" action="">
+                {% csrf_token %}
+                <p>Are you sure you want to delete {{ object.title }}?</p>
+                <button type="submit">DELETE</button>
+            </form>
+        </div>
+    </main>
+{% endblock %}
