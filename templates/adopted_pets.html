@@ -1,13 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-...
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% if user.is_authenticated %}
+            <p><a href="{% url 'happy_adopted_create' %}">Post Happy Adopted Animal</a></p>
+        {% endif %}
+        <h1>Happy Adopted Pets</h1>
+        {% for pet in adoptpetmodel_list %}
+            <div>
+                <h2>Name: {{ pet.name_pet }}</h2>
+                <img src="{{ pet.photo.url }}" alt="{{ pet.name_pet }}">
+                <p>{{ pet.pet_story }}</p>
+                {% if pet.location %}
+                    <p>{{ pet.location }}</p>
+                {% endif %}
+                <p>Adopted from {{ pet.user.first_name }}</p>
+                <p>Adopted on {{ pet.date_of_adoption }}</p>
+            </div>
+        {% endfor %}
+    </main>
+{% endblock %}

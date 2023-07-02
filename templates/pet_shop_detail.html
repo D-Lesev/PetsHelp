@@ -4,6 +4,9 @@
 {% block content %}
     <main>
         <div class="pet-shop-detail">
+            {% if request.user.is_authenticated and request.user == object.user %}
+                <p>Edit the item: <a href="{% url 'edit_petshop' object.pk %}">EDIT</a></p>
+            {% endif %}
             <h1>{{ object.title }}</h1>
             <p>Description: {{ object.description }}</p>
             <p>Price: {{ object.price }}BGN</p>

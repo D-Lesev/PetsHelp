@@ -3,6 +3,9 @@
 
 {% block content %}
     <main>
+        {% if user.is_authenticated %}
+            <p>Create an <a href="{% url 'create_petshop' %}">item</a> for sell!</p>
+        {% endif %}
         {% if itemshop_list %}
             <h2>Items for sale</h2>
                 <section id="items_sales">
@@ -20,6 +23,7 @@
                                             <img src="{{ pic.url }}" alt="No picture!">
                                         </div>
                                     {% endfor %}
+                                    <p><a href="{% url 'details_petshop' item.pk %}">Details</a></p>
                                 </div>
                             </li>
                         {% endfor %}

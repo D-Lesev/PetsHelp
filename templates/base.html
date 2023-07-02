@@ -17,15 +17,19 @@
                 </p>
                 <nav class="nav">
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Pet Shop</a></li>
-                        <li><a href="">Happy Adopted Pets</a></li>
-                        <li><a href="">Contacts</a></li>
-                        <li><a href="">Sign In</a></li>
-                        <li><a href="">Sign Up</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'petshop' %}">Pet Shop</a></li>
+                        <li><a href="{% url 'happy_adopted' %}">Happy Adopted Pets</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Contacts</a></li>
+                        {% if not user.is_authenticated %}
+                        <li><a href="{% url 'login' %}">Sign In</a></li>
+                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                        {% else %}
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
-                <button class="nav-btn">Dashboard</button>
             </div>
         </header>
     {% block content %}

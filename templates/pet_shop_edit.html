@@ -5,6 +5,9 @@
     <main>
         <div class="pet-shop-edit">
             <h1>Edit Details For The Item</h1>
+            {% if request.user.is_authenticated and request.user == object.user %}
+                <p><a href="{% url 'delete_petshop' object.pk %}">Delete Item</a></p>
+            {% endif %}
             <form method="post" action="">
                 {% csrf_token %}
                 {{ form.as_p }}

@@ -2,7 +2,19 @@
 {% load static %}
 
 {% block content %}
-    <div class="main-cover-pic">
-        <p>Test</p>
-    </div>
+    <main class="main-cover-pic">
+    {% if user.is_authenticated %}
+        <p>Your name: {{ request.user.username }}</p>
+        <p>You are logged in</p>
+        <p></p>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <p>Not logged in</p>
+        <p>View this <a href="{% url 'petshop' %}">Petshop</a></p>
+        <p>If you want to put an item for sell,
+            you must first login into the system -> <a href="{% url 'login' %}">Login</a>
+            or if you dont have an account -> <a href="{% url 'signup' %}">Sign Up</a>
+        </p>
+    {% endif %}
+    </main>
 {% endblock %}
