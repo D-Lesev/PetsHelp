@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from accounts.models import CustomUser
 from PIL import Image
 
@@ -16,7 +17,7 @@ class AdoptPetModel(models.Model):
     def __str__(self):
         return self.name_pet
 
-    def save(self):
+    def save(self, *args, **kwargs):
         super().save()
 
         img = Image.open(self.photo.path)
@@ -25,4 +26,40 @@ class AdoptPetModel(models.Model):
             new_img = (640, 480)
             img.thumbnail(new_img)
             img.save(self.photo.path)
+
+
+class AdoptionHomeModel(models.Model):
+    animal_choice = {
+        ('dog', 'Dog'),
+        ('cat', 'Cat'),
+        ('other', 'Other')
+    }
+
+    title = models.CharField(max_length=30)
+    slug = models.SlugField(unique=True, editable=False)
+    province = models.CharField(max_length=25)
+    city = models.CharField(max_length=25)
+    picture = models.ImageField(upload_to='adoption_homes/')
+    animal_type = models.CharField(max_length=30, choices=animal_choice)
+    description = models.TextField(blank=True)
+    start_period = models.DateField()
+    end_period = models.DateField(blank=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+
+        if not self.slug:
+            self.slug = slugify(f"{self.title}-{self.pk}")
+
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.picture.path)
+
+        if img.width > 640 or img.height > 480:
+            new_img = (640, 480)
+            img.thumbnail(new_img)
+            img.save(self.picture.path)
 

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'common.apps.CommonConfig',
     'shop.apps.ShopConfig',
     'accounts.apps.AccountsConfig',
+    'animals.apps.AnimalsConfig',
 ]
 
 MIDDLEWARE = [

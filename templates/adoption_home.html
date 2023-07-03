@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% if request.user.is_authenticated %}
+            <h3>You want to give a pet home? You can do it <a href="{% url 'adoption_homes_create' %}">HERE</a></h3><br>
+            <h1>Free homes for animals in need</h1>
+                {% for home in adoptionhomemodel_list %}
+                    <h2>{{ home.title }}</h2>
+                    <p>Location:</p>
+                    <ul>
+                        <li>Province: {{ home.province }}</li>
+                        <li>City: {{ home.city }}</li>
+                    </ul>
+                    <p>It is good for {{ home.animal_type }}</p>
+                    {% if home.description %}
+                        <p>Details: {{ home.description }}</p>
+                    {% endif %}
+                    <p>The home is free from {{ home.start_period }}</p>
+                    {% if home.end_period %}
+                    <p>End period will be {{ home.end_period }}</p>
+                    {% else %}
+                    <p>End period will be {{ home.end_period }}</p>
+                    {% endif %}
+                    <p>The home is kindly provided from our member: {{ home.user.first_name }}</p>
+                    <img src="{{ home.picture.url }}" alt="Home picture">
+                {% endfor %}
+        {% endif %}
+    </main>
+{% endblock %}

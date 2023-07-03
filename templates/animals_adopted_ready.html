@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% if user.is_authenticated %}
+            <p><a href="{% url 'animal_adopt_create' %}">Create animal for adoption</a></p>
+        {% endif %}
+        <h1>Pets, ready for adoption</h1>
+        {% for pet in animaladoptreadycreate_list %}
+            <div>
+                <h2>Name: {{ pet.animal_name }}</h2>
+                <p>Animal: {{ pet.animal_type }}</p>
+                <img src="{{ pet.picture.url }}" alt="{{ pet.animal_name }}">
+                <p>{{ pet.location }}</p>
+                <p>{{ pet.details }}</p>
+                {% if pet.other %}
+                    <p>{{ pet.other }}</p>
+                {% endif %}
+                <p>Contact with the user {{ pet.user.first_name }}</p>
+            </div>
+        {% endfor %}
+    </main>
+{% endblock %}
