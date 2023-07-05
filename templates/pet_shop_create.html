@@ -4,7 +4,7 @@
 {% block content %}
     <main>
         <h1>Create New Item</h1>
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" action="{% url 'create_petshop' %}">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Create Item</button>

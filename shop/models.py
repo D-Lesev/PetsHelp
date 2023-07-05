@@ -15,14 +15,14 @@ class ItemShop(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(0.0)])
     location = models.CharField(max_length=200, blank=True)
     available_quantity = models.PositiveIntegerField()
-    main_photo = models.ImageField(upload_to='item_images/', validators=[resize_file_image])
+    main_photo = models.ImageField(upload_to='item_images/')
     # pictures = MultiImageField(upload_to='item_images_additional/')
 
     def __str__(self):
         return self.title
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
         img = Image.open(self.main_photo.path)
 

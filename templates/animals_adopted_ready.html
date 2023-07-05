@@ -10,15 +10,19 @@
         {% for pet in animaladoptreadycreate_list %}
             <div>
                 <h2>Name: {{ pet.animal_name }}</h2>
-                <p>Animal: {{ pet.animal_type }}</p>
                 <img src="{{ pet.picture.url }}" alt="{{ pet.animal_name }}">
-                <p>{{ pet.location }}</p>
-                <p>{{ pet.details }}</p>
-                {% if pet.other %}
-                    <p>{{ pet.other }}</p>
-                {% endif %}
-                <p>Contact with the user {{ pet.user.first_name }}</p>
+                <ul>
+                    <li>Animal: {{ pet.animal_type }}</li>
+
+                    <li>{{ pet.location }}</li>
+                    <li>{{ pet.details }}</li>
+                    {% if pet.other %}
+                        <li>{{ pet.other }}</li>
+                    {% endif %}
+                    <li>Contact with the user {{ pet.user.first_name }}</li>
+                </ul>
             </div>
+            <button><a href="{% url 'adopt_form' pet.pk %}">CLICK FOR FORM</a></button>
         {% endfor %}
     </main>
 {% endblock %}

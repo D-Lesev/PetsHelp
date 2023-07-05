@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% if request.user.is_authenticated %}
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p>{{ field_values.animal_name }}</p>
+                <p>{{ field_values.animal_type }}</p>
+                <p>{{ field_values.location }}</p>
+                <button type="submit">Save</button>
+            </form>
+        {% endif %}
+    </main>
+{% endblock %}

@@ -22,4 +22,3 @@ class AnimalAdoptReadyCreate(models.Model):
 
     def __str__(self):
         return self.animal_name
-

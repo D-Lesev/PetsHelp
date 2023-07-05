@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div>
+        <p>{{ object.pk }}</p>
+            <h2>Pet name: {{ object.animal_name }}</h2>
+            <p><img src="{{ object.picture.url }}" alt="None"></p>
+            <p>Location: {{ object.location }}</p>
+            <p>Type: {{ object.animal_type }}</p>
+            <p>Contact with the current owner: {{ object.user.phone }}</p>
+            {% if object.other %}
+                <p>Other Details: {{ object.other }}</p>
+            {% endif %}
+            <button><a href="{% url 'adopt_form' object.pk %}">Adopt</a></button>
+        </div>
+    </main>
+{% endblock %}
