@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView, TemplateView
+from django.urls import reverse_lazy, reverse
+from django.views.generic import CreateView, ListView, UpdateView, TemplateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import AnimalAdoptReadyCreate
-from .forms import AnimalAdoptReadyForm, AnimalAdoptForm
+from .models import AnimalAdoptReadyCreate, AnimalAtVetClinic
+from .forms import AnimalAdoptReadyForm, AnimalAdoptForm, AnimalVetClinicCreateForm
+
 
 # Create your views here.
 
@@ -54,3 +55,49 @@ class AnimalAdoptFormSendView(LoginRequiredMixin, UpdateView):
 class AnimalAdoptSuccess(LoginRequiredMixin, TemplateView):
     template_name = "adopt_animal_success.html"
 
+
+class VetClinicView(LoginRequiredMixin, ListView):
+    model = AnimalAtVetClinic
+    template_name = 'vetclinic.html'
+
+
+class VetClinicCreate(LoginRequiredMixin, CreateView):
+    model = AnimalAtVetClinic
+    form_class = AnimalVetClinicCreateForm
+    template_name = 'vetclinic_create.html'
+    success_url = reverse_lazy('vetclinic_view')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
+class VetClinicDetails(LoginRequiredMixin, DetailView):
+    model = AnimalAtVetClinic
+    template_name = 'vetclinic_details.html'
+
+
+class VetClinicEdit(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = AnimalAtVetClinic
+    form_class = AnimalVetClinicCreateForm
+    template_name = 'vetclinic_edit.html'
+
+    def get_success_url(self):
+        pk = self.kwargs['pk']
+        return reverse('vetclinic_details', kwargs={'pk': pk})
+
+    def test_func(self):
+        vetclinic_animal = self.get_object()
+
+        return vetclinic_animal.user == self.request.user
+
+
+class VetClinicDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = AnimalAtVetClinic
+    template_name = 'vetclinic_delete.html'
+    success_url = reverse_lazy('vetclinic_view')
+
+    def test_func(self):
+        vet_object = self.get_object()
+
+        return self.request.user == vet_object.user

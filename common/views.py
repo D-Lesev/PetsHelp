@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, CreateView
-from .models import AdoptPetModel, AdoptionHomeModel
+from .models import AdoptPetModel, AdoptionHomeModel, ShareAnimalModel
 from .forms import AdoptPetFormModel, AdoptionHomeCreateModel
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -11,8 +11,20 @@ class HomePageView(TemplateView):
     template_name = 'home.html'
 
 
-class DashListView(ListView):
-    template_name = 'dashboard.html'
+class HelpAnimalsListView(ListView):
+    template_name = 'help-animals.html'
+    model = ShareAnimalModel
+
+
+class HelpAnimalsCreateView(LoginRequiredMixin, CreateView):
+    model = ShareAnimalModel
+    template_name = 'help-animals-create.html'
+    fields = '__all__'
+    exclude = ['user']  # to make a Form and exclude user !
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class HappyAdoptedPetsView(ListView):
@@ -43,4 +55,5 @@ class AdoptionHomeCreate(LoginRequiredMixin, CreateView):
 class AdoptionHomeView(LoginRequiredMixin, ListView):
     model = AdoptionHomeModel
     template_name = 'adoption_home.html'
+
 

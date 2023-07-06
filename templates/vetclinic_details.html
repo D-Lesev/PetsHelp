@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% if request.user.is_authenticated %}
+            <h2>{{ object.name_animal }}</h2>
+            <ul>
+                <li>Type {{ object.type_animal }}</li>
+                <img src="{{ object.pictures.url }}" alt="None">
+                <li>Medical Record {{ object.medical_record }}</li>
+                <li>Vetclinic {{ object.vetclinic }}</li>
+                <li>Vetclinic_city {{ object.vetclinic_city }}</li>
+                {% if object.details_pet %}
+                <li>Vetclinic_city {{ object.details_pet }}</li>
+                {% endif %}
+                <li>Bill: {{ object.current_bill }}</li>
+                <li>Vetclinic_city {{ object.vetclinic_city }}</li>
+            </ul>
+            {% if request.user == object.user %}
+                <a href="{% url 'vetclinic_edit' object.pk %}">EDIT</a>
+                <a href="{% url 'vetclinic_delete' object.pk %}">Delete</a>
+            {% endif %}
+        {% endif %}
+    </main>
+{% endblock %}

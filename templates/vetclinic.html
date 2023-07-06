@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% if request.user.is_authenticated %}
+            {% if animalatvetclinic_list %}
+                {% for animal in animalatvetclinic_list %}
+                    <h2>{{ animal.name_animal }}</h2>
+                    <ul>
+                        <li>Type {{ animal.type_animal }}</li>
+                        <li>Medical Record {{ animal.medical_record }}</li>
+                    </ul>
+                    <img src="{{ animal.pictures.url }}" alt="None">
+                    <a href="{% url 'vetclinic_details' animal.pk %}">More Details</a>
+                {% endfor %}
+            {% else %}
+                <p>No animals</p>
+                <a href="{% url 'vetclinic_create' %}">Create</a>
+            {% endif %}
+        {% endif %}
+    </main>
+{% endblock %}

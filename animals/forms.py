@@ -1,5 +1,5 @@
 from django import forms
-from .models import AnimalAdoptReadyCreate
+from .models import AnimalAdoptReadyCreate, AnimalAtVetClinic
 
 
 class AnimalAdoptReadyForm(forms.ModelForm):
@@ -20,3 +20,10 @@ class AnimalAdoptForm(forms.ModelForm):
         fields = [
             'animal_name', 'animal_type', 'location', 'details', 'other', 'picture',
         ]
+
+
+class AnimalVetClinicCreateForm(forms.ModelForm):
+    class Meta:
+        model = AnimalAtVetClinic
+        exclude = ['user']
+        # fields = "__all__"

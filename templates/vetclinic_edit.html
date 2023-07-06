@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <form action="{% url 'vetclinic_edit' object.pk %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">SAVE!!!</button>
+        </form>
+    </main>
+{% endblock %}

@@ -63,3 +63,10 @@ class AdoptionHomeModel(models.Model):
             img.thumbnail(new_img)
             img.save(self.picture.path)
 
+
+class ShareAnimalModel(models.Model):
+    title = models.CharField(max_length=40)
+    user = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
+    notes = models.TextField(blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
+    main_photo = models.ImageField(upload_to='help_animals/%Y/%m/%d/')
