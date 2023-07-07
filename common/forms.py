@@ -1,5 +1,5 @@
 from django import forms
-from .models import AdoptPetModel, AdoptionHomeModel
+from .models import AdoptPetModel, AdoptionHomeModel, ShareAnimalModel
 
 
 class AdoptPetFormModel(forms.ModelForm):
@@ -28,3 +28,9 @@ class AdoptionHomeCreateModel(forms.ModelForm):
             'start_period': forms.DateInput(attrs={'type': 'date'}),
             'end_period': forms.DateInput(attrs={'type': 'date'}),
         }
+
+
+class ShareAnimalForm(forms.ModelForm):
+    class Meta:
+        model = ShareAnimalModel
+        exclude = ['user']

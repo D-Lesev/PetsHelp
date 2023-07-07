@@ -68,5 +68,6 @@ class ShareAnimalModel(models.Model):
     title = models.CharField(max_length=40)
     user = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
     notes = models.TextField(blank=True, null=True)
-    address = models.TextField(blank=True, null=True)
+    province = models.CharField(max_length=30, default='Plovdiv')  # to delete default
+    city = models.CharField(max_length=30, default='Plovdiv')  # to delete default
     main_photo = models.ImageField(upload_to='help_animals/%Y/%m/%d/')

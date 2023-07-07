@@ -2,5 +2,16 @@
 {% load static %}
 
 {% block content %}
-    <h2>TODO: Modification</h2>
+    <main>
+        <button><a href="{% url 'help_animals_create' %}">Share</a></button>
+        {% for pet in shareanimalmodel_list %}
+            <h1>{{ pet.title }}</h1>
+            <p>{{ pet.user.first_name }}</p>
+            <p>{{ pet.notes }}</p>
+            <p>{{ pet.province }}</p>
+            <p>{{ pet.city }}</p>
+            <p><img src="{{ pet.main_photo.url }}" alt="photo" style="width: 300px; height: 400px"></p>
+            <button><a href="{% url 'help_animals_detail' pet.pk %}">Click</a></button>
+        {% endfor %}
+    </main>
 {% endblock %}
