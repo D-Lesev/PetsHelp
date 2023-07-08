@@ -27,6 +27,9 @@ class AdoptPetModel(models.Model):
             img.thumbnail(new_img)
             img.save(self.photo.path)
 
+    class Meta:
+        verbose_name_plural = 'AdoptPet'
+
 
 class AdoptionHomeModel(models.Model):
     animal_choice = {
@@ -63,6 +66,9 @@ class AdoptionHomeModel(models.Model):
             img.thumbnail(new_img)
             img.save(self.picture.path)
 
+    class Meta:
+        verbose_name_plural = 'AdoptionHome'
+
 
 class ShareAnimalModel(models.Model):
     title = models.CharField(max_length=40)
@@ -71,3 +77,6 @@ class ShareAnimalModel(models.Model):
     province = models.CharField(max_length=30, default='Plovdiv')  # to delete default
     city = models.CharField(max_length=30, default='Plovdiv')  # to delete default
     main_photo = models.ImageField(upload_to='help_animals/%Y/%m/%d/')
+
+    class Meta:
+        verbose_name_plural = 'ShareAnimal'

@@ -20,6 +20,9 @@ class AnimalAdoptReadyCreate(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='pets_for_adoption/')
 
+    class Meta:
+        verbose_name_plural = 'AnimalAdoptReady'
+
     def __str__(self):
         return self.animal_name
 
@@ -42,3 +45,8 @@ class AnimalAtVetClinic(models.Model):
     pictures = models.ImageField(upload_to='vetclinic/%Y/%m/%d/')
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name_plural = 'AnimalVetClinic'
+
+    def __str__(self):
+        return self.name_animal

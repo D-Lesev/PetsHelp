@@ -31,6 +31,9 @@ class ItemShop(models.Model):
             img.thumbnail(new_img)
             img.save(self.main_photo.path)
 
+    class Meta:
+        verbose_name_plural = 'ItemShop'
+
             # def clean(self):
     #     max_pics = 5
     #
