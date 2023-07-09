@@ -49,7 +49,17 @@ class CustomUserCreationForm(UserCreationForm):
 
     def clean(self):
         cleaned_data = super().clean()
+        username = cleaned_data.get('username')
         email = cleaned_data.get('email')
+
         if email and CustomUser.objects.filter(email=email).exists():
             self.add_error('email', "This email cannot be used.")
+
+        if username and CustomUser.objects.filter(username=username).exists():
+            self.add_error('username', 'The username already exists.')
+
         return self.cleaned_data
+
+    error_messages = {
+        'password_mismatch': 'Passwords do not match'
+    }

@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import ItemShop
-# Register your models here.
 
 
 @admin.register(ItemShop)

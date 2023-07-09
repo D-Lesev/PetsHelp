@@ -38,9 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 3rd party
-    'multiupload',
-
     # local
     'common.apps.CommonConfig',
     'shop.apps.ShopConfig',

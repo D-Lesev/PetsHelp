@@ -1,11 +1,13 @@
-from django.db import models
-from accounts.models import CustomUser
-from django.core.validators import DecimalValidator, MinValueValidator
-from .validators import check_for_letter, resize_file_image, image_count
 from PIL import Image
-from multiupload.fields import MultiImageField
-from django.core.exceptions import ValidationError
-# Create your models here.
+from django.db import models
+from django.core.validators import MinValueValidator
+from accounts.models import CustomUser
+from .validators import check_for_letter
+
+
+def get_user_item_folder(instance, image):
+    user_pk = instance.user.pk
+    return f'item_images/{user_pk}/{image}'
 
 
 class ItemShop(models.Model):
@@ -13,10 +15,10 @@ class ItemShop(models.Model):
     title = models.CharField(max_length=50, validators=[check_for_letter])
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(0.0)])
-    location = models.CharField(max_length=200, blank=True)
+    location = models.CharField(max_length=50, blank=True)
     available_quantity = models.PositiveIntegerField()
-    main_photo = models.ImageField(upload_to='item_images/')
-    # pictures = MultiImageField(upload_to='item_images_additional/')
+    main_photo = models.ImageField(upload_to=get_user_item_folder)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
@@ -33,10 +35,4 @@ class ItemShop(models.Model):
 
     class Meta:
         verbose_name_plural = 'ItemShop'
-
-            # def clean(self):
-    #     max_pics = 5
-    #
-    #     # Custom validation for the pictures field
-    #     if self.pictures.count() > max_pics:
-    #         raise ValidationError("You can upload up to 5 images.")
+        ordering = ['-created']
