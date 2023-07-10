@@ -1,8 +1,6 @@
 from django.contrib import admin
 from .models import AnimalAdoptReadyCreate, AnimalAtVetClinic
 
-# Register your models here.
-
 
 @admin.register(AnimalAdoptReadyCreate)
 class AnimalAdoptReadyCreateAdmin(admin.ModelAdmin):

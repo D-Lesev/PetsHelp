@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import AdoptPetModel, AdoptionHomeModel, ShareAnimalModel
-# Register your models here.
 
 
 @admin.register(AdoptPetModel)

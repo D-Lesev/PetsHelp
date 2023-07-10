@@ -1,12 +1,8 @@
-from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, UpdateView, TemplateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import AnimalAdoptReadyCreate, AnimalAtVetClinic
 from .forms import AnimalAdoptReadyForm, AnimalAdoptForm, AnimalVetClinicCreateForm
-
-
-# Create your views here.
 
 
 class AnimalAdoptCreateView(LoginRequiredMixin, CreateView):

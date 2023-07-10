@@ -1,13 +1,11 @@
-from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, CreateView, DetailView
-from .models import AdoptPetModel, AdoptionHomeModel, ShareAnimalModel
-from .forms import AdoptPetFormModel, AdoptionHomeCreateModel, ShareAnimalForm
-from django.contrib.auth.mixins import LoginRequiredMixin
 import PIL.ExifTags
 from PIL import Image
 from geopy.geocoders import Nominatim
-
-# Create your views here.
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, CreateView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import AdoptPetModel, AdoptionHomeModel, ShareAnimalModel
+from .forms import AdoptPetFormModel, AdoptionHomeCreateModel, ShareAnimalForm
 
 
 class HomePageView(TemplateView):

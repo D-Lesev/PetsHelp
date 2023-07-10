@@ -1,14 +1,13 @@
+from PIL import Image
 from django.db import models
 from django.utils.text import slugify
+from django.core.validators import MinLengthValidator
 from accounts.models import CustomUser
-from PIL import Image
-
-# Create your models here.
 
 
 class AdoptPetModel(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
-    name_pet = models.CharField(max_length=30)
+    name_pet = models.CharField(max_length=30, validators=[MinLengthValidator(2)])
     location = models.CharField(max_length=50, blank=True)
     pet_story = models.TextField()
     photo = models.ImageField(upload_to='happy_adopted/')
@@ -38,10 +37,10 @@ class AdoptionHomeModel(models.Model):
         ('other', 'Other')
     }
 
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=30, validators=[MinLengthValidator(2)])
     slug = models.SlugField(unique=True, editable=False)
-    province = models.CharField(max_length=25)
-    city = models.CharField(max_length=25)
+    province = models.CharField(max_length=25, validators=[MinLengthValidator(2)])
+    city = models.CharField(max_length=25, validators=[MinLengthValidator(2)])
     picture = models.ImageField(upload_to='adoption_homes/')
     animal_type = models.CharField(max_length=30, choices=animal_choice)
     description = models.TextField(blank=True)
@@ -71,11 +70,11 @@ class AdoptionHomeModel(models.Model):
 
 
 class ShareAnimalModel(models.Model):
-    title = models.CharField(max_length=40)
+    title = models.CharField(max_length=40, validators=[MinLengthValidator(2)])
     user = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
     notes = models.TextField(blank=True, null=True)
-    province = models.CharField(max_length=30, default='Plovdiv')  # to delete default
-    city = models.CharField(max_length=30, default='Plovdiv')  # to delete default
+    province = models.CharField(max_length=30, validators=[MinLengthValidator(2)])
+    city = models.CharField(max_length=30, validators=[MinLengthValidator(2)])
     main_photo = models.ImageField(upload_to='help_animals/%Y/%m/%d/')
 
     class Meta:
