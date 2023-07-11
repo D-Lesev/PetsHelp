@@ -104,6 +104,11 @@ class AdoptionHomeCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class AdoptionHomeDetails(LoginRequiredMixin, DetailView):
+    model = AdoptionHomeModel
+    template_name = 'adoption_home_detail.html'
+
+
 class AdoptionHomeView(LoginRequiredMixin, ListView):
     model = AdoptionHomeModel
     template_name = 'adoption_home.html'

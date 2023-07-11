@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% if object.description %}
+            <p>Details: {{ object.description }}</p>
+        {% endif %}
+        <p>The home is free from {{ object.start_period }}</p>
+        {% if home.end_period %}
+        <p>End period will be {{ object.end_period }}</p>
+        {% else %}
+        <p>End period will be {{ object.end_period }}</p>
+        {% endif %}
+        <p>The home is kindly provided from our member: {{ object.user.first_name }}</p>
+        <img src="{{ object.picture.url }}" alt="Home picture">
+    </main>
+{% endblock %}

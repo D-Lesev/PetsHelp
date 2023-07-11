@@ -2,6 +2,7 @@ from PIL import Image
 from django.db import models
 from django.utils.text import slugify
 from django.core.validators import MinLengthValidator
+from django.urls import reverse
 from accounts.models import CustomUser
 
 
@@ -54,6 +55,7 @@ class AdoptionHomeModel(models.Model):
     def save(self, *args, **kwargs):
 
         if not self.slug:
+            super().save(*args, **kwargs)
             self.slug = slugify(f"{self.title}-{self.pk}")
 
         super().save(*args, **kwargs)
@@ -67,6 +69,9 @@ class AdoptionHomeModel(models.Model):
 
     class Meta:
         verbose_name_plural = 'AdoptionHome'
+
+    def get_absolute_url(self):
+        return reverse('adoption_home_detail', args=[self.slug])
 
 
 class ShareAnimalModel(models.Model):

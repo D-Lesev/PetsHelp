@@ -14,17 +14,7 @@
                         <li>City: {{ home.city }}</li>
                     </ul>
                     <p>It is good for {{ home.animal_type }}</p>
-                    {% if home.description %}
-                        <p>Details: {{ home.description }}</p>
-                    {% endif %}
-                    <p>The home is free from {{ home.start_period }}</p>
-                    {% if home.end_period %}
-                    <p>End period will be {{ home.end_period }}</p>
-                    {% else %}
-                    <p>End period will be {{ home.end_period }}</p>
-                    {% endif %}
-                    <p>The home is kindly provided from our member: {{ home.user.first_name }}</p>
-                    <img src="{{ home.picture.url }}" alt="Home picture">
+                    <a href="{{ home.get_absolute_url }}">More Details</a>
                 {% endfor %}
         {% endif %}
     </main>
