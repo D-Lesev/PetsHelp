@@ -6,38 +6,66 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"><link style="">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
     <title>Pets Help</title>
 </head>
 <body>
-    <header class="head">
-            <div class="top">
-                <p class="text-top">
-                    Pets Help
-                </p>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'petshop' %}">Pet Shop</a></li>
-                        <li><a href="{% url 'happy_adopted' %}">Happy Adopted Pets</a></li>
-                        <li><a href="{% url 'help_animals' %}">Share Animal</a></li>
-                        <li><a href="#">Contacts</a></li>
-                        {% if not user.is_authenticated %}
-                        <li><a href="{% url 'login' %}">Sign In</a></li>
-                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                        {% else %}
-                        <li><a href="{% url 'adoption_homes' %}">Homes For Adoption</a></li>
-                        <li><a href="{% url 'vetclinic_view' %}">Vetclinic</a></li>
-                        <li><a href="{% url 'adoption_animals' %}">Adopt a Pet</a></li>
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                        {% endif %}
-                    </ul>
-                </nav>
+<header class="head">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">Pets Help</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="{% url 'petshop' %}">Pet Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="{% url 'happy_adopted' %}">Happy Adopted Pets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="{% url 'help_animals' %}">Share Animal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="#">Contacts</a>
+                    </li>
+                    {% if not user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary" href="{% url 'login' %}">Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary" href="{% url 'signup' %}">Sign Up</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary" href="{% url 'adoption_homes' %}">Homes For Adoption</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary" href="{% url 'vetclinic_view' %}">Vetclinic</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary" href="{% url 'adoption_animals' %}">Adopt a Pet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% endif %}
+                </ul>
             </div>
-        </header>
-    {% block content %}
-    {% endblock %}
+        </div>
+    </nav>
+</header>
+{% block content %}
+{% endblock %}
 </body>
 </html>

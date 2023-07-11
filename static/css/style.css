@@ -2,203 +2,82 @@
 @import "https://use.fontawesome.com/releases/v6.3.0/css/all.css";
 
 body {
-font-family: 'Poppins', sans-serif;
-width: 100vw;
+  font-family: 'Poppins', sans-serif;
+  width: 100vw;
 }
 
-.head {
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    height: 5%;
-    min-width: 100vw;
+.navbar-brand {
+  font-weight: bold;
+  color: #fff;
 }
 
-.top {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 120vh;
-    margin: auto;
+.navbar-nav .nav-link {
+  color: #ff0000;
+  margin-right: 10px;
+  height: 30px;
+  transition: transform 0.1s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.text-top {
-    font-weight: bold;
-    font-size: 20px;
-    color: yellow;
+.navbar-nav .nav-link:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
 }
 
-.nav {
-    padding-left: 200px;
+.bg-dark {
+  background: #12c2e9!important;
+  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9)!important;
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9)!important;
 }
 
-.nav ul {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    gap: 50px;
+.navbar-dark .navbar-nav .nav-link {
+  position: relative;
+  background-color: #2C3E50;
 }
 
-.nav ul a {
-    text-decoration: none;
-    color: royalblue;
-    font-size: 15px;
-    font-weight: bold;
+.navbar-dark .navbar-nav .nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: lightgreen;
+  z-index: -1;
 }
 
-.nav-btn {
-    border-radius: 20px;
-    width: 150px;
-    height: 29px;
-    background-color: #4e222d;
-    color: white;
-    font-weight: bold;
-    font-size: 13px;
-    border: none;
-    margin-left: 20px;
+.navbar-nav .nav-link.btn-primary {
+  color: #ff0000;
+  background-color: #2C3E50;
+  border-color: #ff0000;
 }
 
-.nav-btn:hover {
-    cursor: pointer;
+.navbar-nav .nav-link.btn-primary:hover {
+  color: #fff;
+  background-color: yellowgreen;
+  border-color: #ff0000;
 }
 
-#map { height: 300px; width: 700px;}
+#map { height: 300px; width: 700px; }
 
 .main-cover-pic {
-    display: flex;
-    flex-direction: column;
-    background-image: url("../images/collage.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top;
-    min-height: 120vh;
-    min-width: 100vw;
-    object-fit: fill;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../images/collage.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  min-height: 120vh;
+  min-width: 100vw;
+  object-fit: fill;
 }
 
 .content-main {
-width: 90%;
-margin: 0px auto;
-display: flex;
-flex-direction: column;
-height: 1000px;
-}
-
-.cards {
-display: flex;
-flex-direction: row;
-justify-content: center;
-flex-wrap: wrap;
-height: 500px;
-width: 1200px;
-gap: 20px;
-margin: 0px auto;
-}
-
-.cards .card {
-display: flex;
-flex-direction: column;
-border-radius: 5px;
-overflow: hidden;
-background-color: white;
-font-weight: bold
-color: white;
-width: 290px;
-}
-
-.cards .card .img img {
-width: 100%;
-height: 200px;
-}
-
-.content-main-text {
-text-align: center;
-}
-
-.content-main-text h3 {
-text-align: center;
-font-size: 25px;
-margin-bottom: 0px;
-}
-
-.content-main-text h5 {
-text-align: center;
-font-size: 15px;
-margin-top: 0px;
-}
-
-
-.btn-article {
-background-color: white;
-color: black;
-border: 2px solid lightgray;
-width: 150px;
-height: 40px;
-margin: 5px 70px;
-padding: 10px auto;
-border-radius: 20px;
-font-weight: bold;
-}
-
-.article h1 {
-margin: 0px auto;
-font-size: 20px;
-text-align: center;
-}
-
-.article p {
-margin: 10px 10px;
-font-size: 15px;
-text-align: left;
-}
-
-
-.foot {
-background-color: black;
-color: white;
-}
-
-.end {
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-width: 80%;
-padding-left: 150px;
-}
-
-.container_first ul {
-list-style-type: none;
-}
-
-.container_first ul a {
-text-decoration: none;
-color: white;
-}
-
-.container_second ul {
-list-style-type: none;
-}
-
-.container_second ul a {
-text-decoration: none;
-color: white;
-}
-
-.socials p {
-margin-bottom: 0px;
-}
-
-.socials .icons i {
-padding: 5px;
-}
-
-.socials .icons i:hover {
-cursor: pointer;
-}
-
-.end_text {
-font-size: 30px;
-font-weight: bold;
+  width: 90%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
 }
