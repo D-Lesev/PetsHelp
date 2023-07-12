@@ -27,7 +27,7 @@ class HelpAnimalsCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class HelpAnimalsDetailView(DetailView):
+class HelpAnimalsDetailView(LoginRequiredMixin, DetailView):
     model = ShareAnimalModel
     template_name = 'help-animals-details.html'
 

@@ -2,19 +2,22 @@
 {% load static %}
 
 {% block content %}
-    <main class="main-cover-pic">
-    {% if user.is_authenticated %}
-        <p>Your name: {{ request.user.username }}</p>
-        <p>You are logged in</p>
-        <p></p>
-        <a href="{% url 'logout' %}">Logout</a>
+    <h1 class="home-head">Welcome to Pet Help</h1>
+    {% if not user.is_authenticated %}
+    <p>You are here to help animals in need.</p>
+    <p>
+        If you dont have an account you can visit the following pages with some limited access.
+    </p>
+        <ul class="button-list">
+            <li><a href="{% url 'help_animals' %}">Animals in need</a></li>
+            <li><a href="{% url 'happy_adopted' %}">Happy Adopted Pets</a></li>
+            <li><a href="{% url 'petshop' %}">Our Petshop</a></li>
+        </ul>
+    <p>For full access, make an <a href="#">account</a> or <a href="#">log in</a></p>
     {% else %}
-        <p>Not logged in</p>
+        <h2>Welcome back {{ request.user.get_full_name }}</h2>
+
         <p>View this <a href="{% url 'petshop' %}">Petshop</a></p>
-        <p>If you want to put an item for sell,
-            you must first login into the system -> <a href="{% url 'login' %}">Login</a>
-            or if you dont have an account -> <a href="{% url 'signup' %}">Sign Up</a>
-        </p>
     {% endif %}
-    </main>
+
 {% endblock %}
