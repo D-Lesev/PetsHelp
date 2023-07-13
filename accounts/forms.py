@@ -29,7 +29,7 @@ class CustomUserCreationForm(UserCreationForm):
             'address': forms.TextInput(attrs={'placeholder': 'Your address'}),
             'age': forms.NumberInput(attrs={'placeholder': 'Your current age'}),
             'pet_owner': forms.CheckboxInput(),
-            'profile_picture': forms.ClearableFileInput(),
+            'profile_picture': forms.ClearableFileInput(attrs={'class': 'profile-pic'}),
         }
 
         labels = {
@@ -39,13 +39,14 @@ class CustomUserCreationForm(UserCreationForm):
             'email': 'Your Email',
             'phone': 'Your phone number',
             'address': 'Current address',
+            'profile_picture': 'No files',
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].help_text = None
         self.fields['password1'].help_text = None
-        self.fields['password2'].help_text = 'Enter your password again'
+        self.fields['password2'].help_text = None
 
     def clean(self):
         cleaned_data = super().clean()

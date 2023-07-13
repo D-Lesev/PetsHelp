@@ -2,35 +2,32 @@
 {% load static %}
 
 {% block content %}
-    <main>
-        {% if user.is_authenticated %}
-            <p>Create an <a href="{% url 'create_petshop' %}">item</a> for sell!</p>
-        {% endif %}
-        {% if itemshop_list %}
-            <h2>Items for sale</h2>
-                <section id="items_sales">
-                    <ul>
-                        {% for item in itemshop_list %}
-                            <li>
-                                <div class="item_sale">
-                                    <img src="{{ item.main_photo.url }}" alt="No picture available">
-                                    <h3>{{ item.title }}</h3>
-                                    <p class="description">{{ item.description }}</p>
-                                    <p id="price_item">{{ item.price }}</p>
-                                    <p id="quantity_item">{{ item.available_quantity }}</p>
-                                    {% for pic in item.pictures.all %}
-                                        <div class="picture_item_sales">
-                                            <img src="{{ pic.url }}" alt="No picture!">
-                                        </div>
-                                    {% endfor %}
-                                    <p><a href="{% url 'details_petshop' item.pk %}">Details</a></p>
-                                </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </section>
-        {% else %}
-            <h4>There are no items for sale at this moment</h4>
-        {% endif %}
-    </main>
+    {% if user.is_authenticated %}
+        <button type="submit" class='btn-create-item'><a href="{% url 'create_petshop' %}">Create an Item</a></button>
+    {% endif %}
+    {% if itemshop_list %}
+        <h2 class="title">Items for sale</h2>
+        <div class="custom-main">
+            {% for item in itemshop_list %}
+                <div class="cards">
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ item.main_photo.url }}" alt="No Photo"/>
+                        </div>
+                        <div class="text">
+                            <h2>
+                                {{ item.title }}
+                            </h2>
+                            <ul>
+                                <li>Price: {{ item.price }} BGN</li>
+                            </ul>
+                            <button><a href="{% url 'details_petshop' item.pk %}">Details</a></button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h4>There are no items for sale at this moment</h4>
+    {% endif %}
 {% endblock %}

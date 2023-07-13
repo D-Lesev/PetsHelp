@@ -67,7 +67,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center; /* Center horizontally */
+  align-items: center;
   background-image: url("../images/collage.jpg");
   background-size: cover;
   background-position: center;
@@ -77,13 +77,13 @@
 }
 
 .main-cover-pic h1, .main-cover-pic p {
-  color: #fff; /* Set text color to white */
-  text-align: center; /* Center text */
+  color: #fff;
+  text-align: center;
 }
 
 .content-main {
   width: 90%;
-  margin: 0px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   height: 1000px;
@@ -118,11 +118,260 @@
 
 .button-list li:first-child a {
   font-weight: bold;
-  transition: transform 0.8s, opacity 0.9s;
+  transition: transform 0.8s;
   color: red;
   border: 4px solid darkred;
 }
 
 .home-head {
   margin: -90px;
+}
+
+.login-box {
+  display: inline-block;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  width: 400px;
+  height: auto;
+  backdrop-filter: blur(3px);
+  text-align: center;
+}
+
+.home-h2,
+.login-box h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.home-h2 {
+  color: #12c2e9;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: red;
+}
+
+.login-box button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-box form label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  color: aqua;
+  font-size: 20px;
+}
+
+.login-box h1,
+.login-box p {
+  color: darkorange;
+}
+
+.sign-up {
+  display: inline-block;
+  padding: 0 20px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  width: auto;
+  height: auto;
+  backdrop-filter: blur(3px);
+  text-align: center;
+}
+
+.sign-up form label {
+  display: block;
+  font-weight: normal;
+  margin-top: 10px;
+  color: aqua;
+  font-size: 20px;
+}
+
+.sign-up form input,
+.sign-up form input::placeholder {
+  border-radius: 25px;
+  width: 300px;
+  height: 40px;
+  color: black;
+  font-style: italic;
+  text-align: center;
+  border: none;
+}
+
+.sign-up input[type="checkbox"] {
+    margin-left: 10px;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+
+#id_profile_picture {
+  cursor: pointer;
+  height: 40px;
+  width: 300px;
+  color: red;
+}
+
+.profile-pic button {
+  color: red;
+}
+
+.sign-up button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  width: 400px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease;
+  margin:30px;
+}
+
+.card:hover {
+  transform: scale(1.15);
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+
+.img {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.text h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.text ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+.text li {
+  margin-bottom: 5px;
+}
+
+.text button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.text button a {
+  color: white;
+  text-decoration: none;
+}
+
+.text button:hover {
+  background-color: #45a049;
+}
+
+.custom-main {
+  display: flex!important;
+  flex-direction: row!important;
+  justify-content: start!important;
+  gap: 25px!important;
+  padding-top: 20px!important;
+  margin-top: -230px!important;
+  text-align: center;
+  align-items: center;
+}
+
+.main-cover-pic .title {
+  color: blue;
+  margin-top: -230px;
+}
+
+.custom-main h2.title {
+  color: #9ac6ff;
+  font-weight: bolder;
+
+}
+
+.btn-create-item {
+  margin-top: -210px;
+  width: 150px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  font-weight: bolder;
+  background-color: orange;
+}
+
+.btn-create-item:hover {
+  background-color: #45a049;
+}
+
+.btn-create-item:hover a {
+  color: red;
+}
+
+.btn-create-item a {
+  text-decoration: none;
+  color: white;
 }

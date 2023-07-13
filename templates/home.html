@@ -15,7 +15,7 @@
         </ul>
     <p>For full access, make an <a href="#">account</a> or <a href="#">log in</a></p>
     {% else %}
-        <h2>Welcome back {{ request.user.get_full_name }}</h2>
+        <h2 class="home-h2">Welcome back {{ request.user.get_full_name }}</h2>
 
         <p>View this <a href="{% url 'petshop' %}">Petshop</a></p>
     {% endif %}
