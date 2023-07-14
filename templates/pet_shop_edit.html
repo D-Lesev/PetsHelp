@@ -2,17 +2,17 @@
 {% load static %}
 
 {% block content %}
-    <main>
-        <div class="pet-shop-edit">
-            <h1>Edit Details For The Item</h1>
-            {% if request.user.is_authenticated and request.user == object.user %}
-                <p><a href="{% url 'delete_petshop' object.pk %}">Delete Item</a></p>
-            {% endif %}
-            <form method="post" action="">
+    <div class="pet-shop-edit">
+        {% if request.user.is_authenticated and request.user == object.user %}
+            <button type="submit"><a href="{% url 'delete_petshop' object.pk %}">Delete Item</a></button>
+        {% endif %}
+        <div class="pet-shop-edit-form">
+            <h1>Edit Details</h1>
+            <form method="post" action="{% url 'edit_petshop' object.pk %}">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Save</button>
+                <button type="submit" class="btn-primary">Save</button>
             </form>
         </div>
-    </main>
+    </div>
 {% endblock %}

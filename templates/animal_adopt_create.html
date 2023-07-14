@@ -2,13 +2,11 @@
 {% load static %}
 
 {% block content %}
-    <main>
-        {% if request.user.is_authenticated %}
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Create Animal for Adoption</button>
-            </form>
-        {% endif %}
-    </main>
+    <div class="adoption-create">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="adoption-create-btn">Create Animal for Adoption</button>
+        </form>
+    </div>
 {% endblock %}

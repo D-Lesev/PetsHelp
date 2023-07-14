@@ -2,31 +2,37 @@
 {% load static %}
 
 {% block content %}
-    <main>
-        <div class="pet-shop-detail">
+    <div class="pet-shop-detail">
+        <div class="pet-shop-btn-edit">
             {% if request.user.is_authenticated and request.user == object.user %}
-                <p>Edit the item: <a href="{% url 'edit_petshop' object.pk %}">EDIT</a></p>
+                <button type="submit"><a href="{% url 'edit_petshop' object.pk %}">EDIT</a></button>
             {% endif %}
-            <h1>{{ object.title }}</h1>
-            <p>Description: {{ object.description }}</p>
-            <p>Price: {{ object.price }}BGN</p>
-            {% if object.location %}
-                <p>Location: {{ object.location }}</p>
-            {% endif %}
-            <p>Stock: {{ object.available_quantity }}</p>
-            <img src="{{ object.main_photo.url }}" alt="No picture">
-            {% for pic in object.pictures.all %}
-                <img src="{{ pic.url }}" alt="No picture">
-            {% endfor %}
-            <p>
-                For contacting the person, you can call him or write him an email:
-            </p>
-            <p>
-                Phone Number: {{ object.user.phone }}
-            </p>
-            <p>
-                Email Address: {{ object.user.email }}
-            </p>
         </div>
-    </main>
+        <div class="pet-shop-item">
+            <div class="item-img">
+                <img src="{{ object.main_photo.url }}" alt="No picture">
+            </div>
+            <div class="add-info_item">
+                <h1>{{ object.title }}</h1>
+                <p>Description: {{ object.description }}</p>
+                <p class="price">Price: {{ object.price }}BGN</p>
+                {% if object.location %}
+                    <p>Location: {{ object.location }}</p>
+                {% endif %}
+                <p>Stock: {{ object.available_quantity }}</p>
+                {% for pic in object.pictures.all %}
+                    <img src="{{ pic.url }}" alt="No picture">
+                {% endfor %}
+                <p>
+                    For contacting the person, you can call him or write him an email:
+                </p>
+                <p>
+                    Phone Number: {{ object.user.phone }}
+                </p>
+                <p>
+                    Email Address: {{ object.user.email }}
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

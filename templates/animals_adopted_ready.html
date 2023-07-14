@@ -2,27 +2,34 @@
 {% load static %}
 
 {% block content %}
-    <main>
+    <div class="adoption-view">
         {% if user.is_authenticated %}
-            <p><a href="{% url 'animal_adopt_create' %}">Create animal for adoption</a></p>
+            <button class="btn-adoption-create"><a href="{% url 'animal_adopt_create' %}">Create animal for adoption</a></button>
         {% endif %}
-        <h1>Pets, ready for adoption</h1>
-        {% for pet in animaladoptreadycreate_list %}
-            <div>
-                <h2>Name: {{ pet.animal_name }}</h2>
-                <img src="{{ pet.picture.url }}" alt="{{ pet.animal_name }}">
-                <ul>
-                    <li>Animal: {{ pet.animal_type }}</li>
-
-                    <li>{{ pet.location }}</li>
-                    <li>{{ pet.details }}</li>
-                    {% if pet.other %}
-                        <li>{{ pet.other }}</li>
-                    {% endif %}
-                    <li>Contact with the user {{ pet.user.first_name }}</li>
-                </ul>
-            </div>
-            <button><a href="{% url 'adopt_form' pet.pk %}">CLICK FOR FORM</a></button>
-        {% endfor %}
-    </main>
+        <div class="adoption-pets">
+            <h1>Pets, ready for adoption</h1>
+            {% for pet in animaladoptreadycreate_list %}
+                <div class="cards">
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ pet.picture.url }}" alt="{{ pet.animal_name }}">
+                        </div>
+                        <div class="text">
+                            <h2>{{ pet.animal_name }}</h2>
+                            <ul>
+                                <li>Animal: {{ pet.animal_type }}</li>
+                                <li>It is located in {{ pet.location }}</li>
+                                <li>{{ pet.details|truncatechars:80 }}</li>
+                                {% if pet.other %}
+                                    <li>{{ pet.other|truncatechars:50 }}</li>
+                                {% endif %}
+                                <li>The animal is currently with {{ pet.user.first_name }}</li>
+                            </ul>
+                            <button><a href="{% url 'adopt_form' pet.pk %}">Send Request for Adoption</a></button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

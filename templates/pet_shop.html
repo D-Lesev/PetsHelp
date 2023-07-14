@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+    <figure class="petshop-view">
     {% if user.is_authenticated %}
         <button type="submit" class='btn-create-item'><a href="{% url 'create_petshop' %}">Create an Item</a></button>
     {% endif %}
@@ -30,4 +31,5 @@
     {% else %}
         <h4>There are no items for sale at this moment</h4>
     {% endif %}
+    </figure>
 {% endblock %}

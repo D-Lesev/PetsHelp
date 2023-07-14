@@ -76,6 +76,12 @@
   object-fit: fill;
 }
 
+figure.petshop-view {
+  background-image: url("../images/collage.jpg");
+  text-align: center;
+  background-position: top;
+}
+
 .main-cover-pic h1, .main-cover-pic p {
   color: #fff;
   text-align: center;
@@ -184,6 +190,11 @@
   color: darkorange;
 }
 
+.animal-adopt-form,
+.adoption-create,
+.pet-shop-delete,
+.pet-shop-edit,
+.pet-shop-create,
 .sign-up {
   display: inline-block;
   padding: 0 20px 20px;
@@ -197,6 +208,10 @@
   text-align: center;
 }
 
+.animal-adopt-form form label,
+.adoption-create form label,
+.pet-shop-edit form label,
+.pet-shop-create form label,
 .sign-up form label {
   display: block;
   font-weight: normal;
@@ -205,6 +220,10 @@
   font-size: 20px;
 }
 
+.animal-adopt-form form input,
+.adoption-create form input,
+.pet-shop-edit form input,
+.pet-shop-create form input,
 .sign-up form input,
 .sign-up form input::placeholder {
   border-radius: 25px;
@@ -234,6 +253,9 @@
   color: red;
 }
 
+.animal-adopt-form button[type='submit'],
+.adoption-create button[type='submit'],
+.pet-shop-create button[type='submit'],
 .sign-up button[type="submit"] {
   width: 100%;
   padding: 10px;
@@ -263,8 +285,19 @@
   margin:30px;
 }
 
+.adoption-pets .card {
+  background: white;
+  border-radius: 20px;
+  width: 400px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease;
+  margin:30px
+}
+
 .card:hover {
-  transform: scale(1.15);
+  transform: scale(1.05);
   box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
 }
 
@@ -333,27 +366,26 @@
 .custom-main {
   display: flex!important;
   flex-direction: row!important;
+  flex-wrap: wrap;
   justify-content: start!important;
   gap: 25px!important;
-  padding-top: 20px!important;
-  margin-top: -230px!important;
+  margin-top: 1rem;
   text-align: center;
   align-items: center;
 }
 
 .main-cover-pic .title {
   color: blue;
-  margin-top: -230px;
+  margin-top: 1rem;
 }
 
 .custom-main h2.title {
   color: #9ac6ff;
   font-weight: bolder;
-
 }
 
 .btn-create-item {
-  margin-top: -210px;
+  margin-top: 1%;
   width: 150px;
   height: 50px;
   border-radius: 30px;
@@ -372,6 +404,144 @@
 }
 
 .btn-create-item a {
+  text-decoration: none;
+  color: white;
+}
+
+.pet-shop-create h1 {
+  color: maroon;
+}
+
+.pet-shop-detail {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin-top:-200px;
+}
+
+.pet-shop-btn-edit {
+  padding: 30px;
+}
+
+.pet-shop-btn-edit button {
+  width: 150px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  font-weight: bolder;
+  background-color: orange;
+}
+
+.pet-shop-btn-edit a {
+  text-decoration: none;
+  color: white;
+}
+
+.pet-shop-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 90px;
+}
+
+.pet-shop-item .item-img {
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  border: 4px dashed lawngreen;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.add-info_item {
+  display: inline-block;
+  width: 400px;
+  height: auto;
+  backdrop-filter: blur(7px);
+  border: 4px dashed crimson;
+}
+
+.add-info_item h1 {
+  color: #12c2e9;
+}
+
+.pet-shop-edit button:first-child {
+  width: 150px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  font-weight: bolder;
+  background-color: red;
+  margin-top: 10px;
+}
+
+.pet-shop-edit button:first-child:hover {
+  background-color: black;
+}
+
+.pet-shop-edit-form button {
+  width: 150px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  font-weight: bolder;
+  background-color: green;
+  margin-top: 10px;
+}
+
+.pet-shop-edit a {
+  text-decoration: none;
+  color: white;
+}
+
+.pet-shop-edit-form h1 {
+  font-weight: bold;
+  font-size: 50px;
+  color: chartreuse;
+}
+
+.pet-shop-delete button {
+  width: 150px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  font-weight: bolder;
+  background-color: darkred;
+  margin-top: 10px;
+  color: white;
+}
+
+.adoption-view {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 50px;
+}
+
+.adoption-view .btn-adoption-create {
+  width: 270px;
+  height: 60px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  font-weight: bolder;
+  background-color: darkred;
+  margin-top: -410px;
+}
+
+.adoption-view .btn-adoption-create a {
   text-decoration: none;
   color: white;
 }

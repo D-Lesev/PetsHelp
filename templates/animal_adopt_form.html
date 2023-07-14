@@ -2,16 +2,26 @@
 {% load static %}
 
 {% block content %}
-    <main>
-        {% if request.user.is_authenticated %}
-            <form method="post" action="">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <p>{{ field_values.animal_name }}</p>
-                <p>{{ field_values.animal_type }}</p>
-                <p>{{ field_values.location }}</p>
-                <button type="submit">Save</button>
-            </form>
-        {% endif %}
-    </main>
+    <div class="animal-adopt-form">
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <ul>
+                <li>Name of the pet: {{ field_values.animal_name }}</li>
+                <li>Type of animal: {{ field_values.animal_type }}</li>
+                <li>Where is it: {{ field_values.location }}</li>
+                <li>
+                    {% if field_values.details %}
+                        More details: {{ field_values.details }}
+                    {% endif %}
+                </li>
+                <li>
+                    {% if field_values.other %}
+                        Other details: {{ field_values.other }}
+                    {% endif %}
+                </li>
+            </ul>
+            <button type="submit">Save</button>
+        </form>
+    </div>
 {% endblock %}

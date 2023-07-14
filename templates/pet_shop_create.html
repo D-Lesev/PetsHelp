@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block content %}
-    <main>
+    <div class="pet-shop-create">
         <h1>Create New Item</h1>
         <form method="post" enctype="multipart/form-data" action="{% url 'create_petshop' %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Create Item</button>
+            <button type="submit" class="btn-primary">Create Item</button>
         </form>
-    </main>
+    </div>
 {% endblock %}
