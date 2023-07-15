@@ -2,25 +2,34 @@
 {% load static %}
 
 {% block content %}
-    <main>
-        {% if request.user.is_authenticated %}
-            <h2>{{ object.name_animal }}</h2>
-            <ul>
-                <li>Type {{ object.type_animal }}</li>
-                <img src="{{ object.pictures.url }}" alt="None">
-                <li>Medical Record {{ object.medical_record }}</li>
-                <li>Vetclinic {{ object.vetclinic }}</li>
-                <li>Vetclinic_city {{ object.vetclinic_city }}</li>
-                {% if object.details_pet %}
-                <li>Vetclinic_city {{ object.details_pet }}</li>
-                {% endif %}
-                <li>Bill: {{ object.current_bill }}</li>
-                <li>Vetclinic_city {{ object.vetclinic_city }}</li>
-            </ul>
+    <div class="vetclinic-details">
+        <div class="vetclinic-details-btns">
             {% if request.user == object.user %}
-                <a href="{% url 'vetclinic_edit' object.pk %}">EDIT</a>
-                <a href="{% url 'vetclinic_delete' object.pk %}">Delete</a>
+                <button type="submit"><a href="{% url 'vetclinic_edit' object.pk %}">EDIT</a></button>
+                <button type="submit"><a href="{% url 'vetclinic_delete' object.pk %}">Delete</a></button>
             {% endif %}
-        {% endif %}
-    </main>
+        </div>
+        <div class="vetclinic-details-item">
+            <div class="item-img">
+                <img src="{{ object.pictures.url }}" alt="None">
+            </div>
+            <div class="add-info_item">
+                <h2>{{ object.name_animal }}</h2>
+                <ul>
+                    <li>Type: {{ object.type_animal }}</li>
+
+                    <li>Medical Record: {{ object.medical_record }}</li>
+                    <li>Vetclinic: {{ object.vetclinic }}</li>
+                    <li>City: {{ object.vetclinic_city }}</li>
+                    {% if object.details_pet %}
+                        <li>Details for the pet: {{ object.details_pet }}</li>
+                    {% endif %}
+                    <li>Bill: {{ object.current_bill }} BGN</li>
+                </ul>
+                <p>
+                    The pet is under care from {{ object.user.first_name }}. You can found him at {{ object.user.email }}.
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from .utils import get_password_email
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -139,3 +140,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "danaillesev@gmail.com"
+EMAIL_HOST_PASSWORD = get_password_email()
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

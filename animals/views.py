@@ -1,4 +1,6 @@
 from django.urls import reverse_lazy, reverse
+from django.core.mail import send_mail
+from django.conf import settings
 from django.views.generic import CreateView, ListView, UpdateView, TemplateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import AnimalAdoptReadyCreate, AnimalAtVetClinic
@@ -46,6 +48,28 @@ class AnimalAdoptFormSendView(LoginRequiredMixin, UpdateView):
         context['field_values'] = field_values
 
         return context
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        field_values = self.get_context_data().get('field_values', {})
+        form_data = form.cleaned_data
+
+        email_subject = 'Request for adoption'
+        email_msg = f"A user with the name {self.request.user.first_name}" \
+                    f" {self.request.user.last_name} has requested to adopt " \
+                    f"{field_values['animal_name']}. The person is living in " \
+                    f"{form_data['place_to_live']}.\nOther pets: {form_data['other_pets']}" \
+                    f".\nOther details: {form_data['other_details']}.\nYou can contact with him via phone" \
+                    f" -> {self.request.user.phone} or via email -> {self.request.user.email}"
+
+        send_mail(
+            email_subject,
+            email_msg,
+            settings.EMAIL_HOST_USER,
+            (settings.EMAIL_HOST_USER,)
+        )
+
+        return response
 
 
 class AnimalAdoptSuccess(LoginRequiredMixin, TemplateView):

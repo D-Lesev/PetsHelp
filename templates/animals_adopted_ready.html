@@ -3,9 +3,8 @@
 
 {% block content %}
     <div class="adoption-view">
-        {% if user.is_authenticated %}
-            <button class="btn-adoption-create"><a href="{% url 'animal_adopt_create' %}">Create animal for adoption</a></button>
-        {% endif %}
+        <button class="btn-adoption-create"><a href="{% url 'animal_adopt_create' %}">Create animal for adoption</a>
+        </button>
         <div class="adoption-pets">
             <h1>Pets, ready for adoption</h1>
             {% for pet in animaladoptreadycreate_list %}

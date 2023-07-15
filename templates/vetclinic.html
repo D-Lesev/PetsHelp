@@ -2,22 +2,31 @@
 {% load static %}
 
 {% block content %}
-    <main>
-        {% if request.user.is_authenticated %}
+    <div class="vetclinic-view">
+        <button class="btn-vetclinic-create"><a href="{% url 'vetclinic_create' %}">Create</a></button>
+        <div class="vetclinic-view-animals">
             {% if animalatvetclinic_list %}
                 {% for animal in animalatvetclinic_list %}
-                    <h2>{{ animal.name_animal }}</h2>
-                    <ul>
-                        <li>Type {{ animal.type_animal }}</li>
-                        <li>Medical Record {{ animal.medical_record }}</li>
-                    </ul>
-                    <img src="{{ animal.pictures.url }}" alt="None">
-                    <a href="{% url 'vetclinic_details' animal.pk %}">More Details</a>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="img">
+                                <img src="{{ animal.pictures.url }}" alt="None">
+                            </div>
+                            <div class="text">
+                                <h2>{{ animal.name_animal }}</h2>
+                                <ul>
+                                    <li>Type: {{ animal.type_animal }}</li>
+                                    <li>Medical Record: {{ animal.medical_record|truncatechars:50 }}</li>
+                                </ul>
+                                <button class="btn-vetclinic-view-details"><a
+                                        href="{% url 'vetclinic_details' animal.pk %}">More Details</a></button>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             {% else %}
                 <p>No animals</p>
-                <a href="{% url 'vetclinic_create' %}">Create</a>
             {% endif %}
-        {% endif %}
-    </main>
+        </div>
+    </div>
 {% endblock %}

@@ -190,6 +190,7 @@ figure.petshop-view {
   color: darkorange;
 }
 
+.vetclinic-create,
 .animal-adopt-form,
 .adoption-create,
 .pet-shop-delete,
@@ -208,6 +209,7 @@ figure.petshop-view {
   text-align: center;
 }
 
+.vetclinic-create form label,
 .animal-adopt-form form label,
 .adoption-create form label,
 .pet-shop-edit form label,
@@ -220,6 +222,7 @@ figure.petshop-view {
   font-size: 20px;
 }
 
+.vetclinic-create form input,
 .animal-adopt-form form input,
 .adoption-create form input,
 .pet-shop-edit form input,
@@ -253,6 +256,7 @@ figure.petshop-view {
   color: red;
 }
 
+.vetclinic-create button[type='submit'],
 .animal-adopt-form button[type='submit'],
 .adoption-create button[type='submit'],
 .pet-shop-create button[type='submit'],
@@ -284,6 +288,7 @@ figure.petshop-view {
   transition: 0.5s ease;
   margin:30px;
 }
+
 
 .adoption-pets .card {
   background: white;
@@ -331,6 +336,7 @@ figure.petshop-view {
   margin-bottom: 10px;
 }
 
+.animal-adopt-form ul,
 .text ul {
   list-style-type: none;
   padding: 0;
@@ -412,6 +418,7 @@ figure.petshop-view {
   color: maroon;
 }
 
+.vetclinic-details,
 .pet-shop-detail {
   display: flex;
   flex-wrap: wrap;
@@ -420,10 +427,18 @@ figure.petshop-view {
   margin-top:-200px;
 }
 
+.vetclinic-details-btns {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 30px;
+}
+
 .pet-shop-btn-edit {
   padding: 30px;
 }
 
+.vetclinic-details-btns button,
 .pet-shop-btn-edit button {
   width: 150px;
   height: 50px;
@@ -434,11 +449,13 @@ figure.petshop-view {
   background-color: orange;
 }
 
+.vetclinic-details-btns a,
 .pet-shop-btn-edit a {
   text-decoration: none;
   color: white;
 }
 
+.vetclinic-details-item,
 .pet-shop-item {
   display: flex;
   flex-wrap: wrap;
@@ -446,6 +463,7 @@ figure.petshop-view {
   gap: 90px;
 }
 
+.vetclinic-details-item .item-img,
 .pet-shop-item .item-img {
   display: inline-block;
   width: 400px;
@@ -522,6 +540,7 @@ figure.petshop-view {
   color: white;
 }
 
+.vetclinic-view,
 .adoption-view {
   display: flex;
   flex-direction: column;
@@ -530,6 +549,7 @@ figure.petshop-view {
   gap: 50px;
 }
 
+.vetclinic-view .btn-vetclinic-create,
 .adoption-view .btn-adoption-create {
   width: 270px;
   height: 60px;
@@ -541,7 +561,48 @@ figure.petshop-view {
   margin-top: -410px;
 }
 
+.vetclinic-view .btn-vetclinic-create {
+  width: 270px;
+  height: 60px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  font-weight: bolder;
+  background-color: darkred;
+  margin-top: -250px;
+}
+
+.vetclinic-view .btn-vetclinic-create a,
 .adoption-view .btn-adoption-create a {
   text-decoration: none;
   color: white;
+}
+
+.vetclinic-view .vetclinic-view-animals p {
+  color: #45a049;
+  font-weight: bolder;
+  font-size: 35px;
+}
+
+.success h1 {
+  font-weight: bolder;
+  margin-top: -250px;
+  color: gold;
+}
+
+.vetclinic-details-item .add-info_item ul {
+  list-style-type: none;
+}
+
+.vetclinic-details-item .add-info_item {
+  text-align: center;
+  color: white;
+}
+
+.vetclinic-details .vetclinic-details-btns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 50px;
 }
