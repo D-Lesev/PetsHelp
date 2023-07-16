@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block content %}
-    <main>
+    <div class="adoption-home-create">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Create Home</button>
+            <button type="submit" class="adoption-home-create-btn">Create Home</button>
         </form>
-    </main>
+    </div>
 {% endblock %}

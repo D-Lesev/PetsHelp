@@ -113,4 +113,3 @@ class AdoptionHomeView(LoginRequiredMixin, ListView):
     model = AdoptionHomeModel
     template_name = 'adoption_home.html'
 
-

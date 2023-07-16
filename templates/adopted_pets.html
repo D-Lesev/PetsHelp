@@ -2,22 +2,33 @@
 {% load static %}
 
 {% block content %}
-    <main>
+    <div class="adopted-happy-pets">
         {% if user.is_authenticated %}
-            <p><a href="{% url 'happy_adopted_create' %}">Post Happy Adopted Animal</a></p>
+            <button class="btn-adopted-happy-pets"><a href="{% url 'happy_adopted_create' %}">Publish Happy Adopted
+                Animal</a></button>
         {% endif %}
-        <h1>Happy Adopted Pets</h1>
-        {% for pet in adoptpetmodel_list %}
-            <div>
-                <h2>Name: {{ pet.name_pet }}</h2>
-                <img src="{{ pet.photo.url }}" alt="{{ pet.name_pet }}">
-                <p>{{ pet.pet_story }}</p>
-                {% if pet.location %}
-                    <p>{{ pet.location }}</p>
-                {% endif %}
-                <p>Adopted from {{ pet.user.first_name }}</p>
-                <p>Adopted on {{ pet.date_of_adoption }}</p>
+        <div class="adopted-pets">
+            <h1>Happy Adopted Pets</h1>
+            <div class="cards">
+                {% for pet in adoptpetmodel_list %}
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ pet.photo.url }}" alt="{{ pet.name_pet }}">
+                        </div>
+                        <div class="text">
+                            <h2>Name: {{ pet.name_pet }}</h2>
+                            <ul>
+                                <li>Pet Story: {{ pet.pet_story }}</li>
+                                <li>Adopted from: {{ pet.user.first_name }}</li>
+                                <li>Adopted on: {{ pet.date_of_adoption }}</li>
+                                {% if pet.location %}
+                                <li>Currently living in {{ pet.location }}</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </main>
+        </div>
+    </div>
 {% endblock %}

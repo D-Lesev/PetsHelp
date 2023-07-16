@@ -2,20 +2,31 @@
 {% load static %}
 
 {% block content %}
-    <main>
+    <div class="adoption-homes">
         {% if request.user.is_authenticated %}
-            <h3>You want to give a pet home? You can do it <a href="{% url 'adoption_homes_create' %}">HERE</a></h3><br>
-            <h1>Free homes for animals in need</h1>
-                {% for home in adoptionhomemodel_list %}
-                    <h2>{{ home.title }}</h2>
-                    <p>Location:</p>
-                    <ul>
-                        <li>Province: {{ home.province }}</li>
-                        <li>City: {{ home.city }}</li>
-                    </ul>
-                    <p>It is good for {{ home.animal_type }}</p>
-                    <a href="{{ home.get_absolute_url }}">More Details</a>
-                {% endfor %}
+            <button class="btn-adoption-homes"><a href="{% url 'adoption_homes_create' %}">Submit a home</a></button>
         {% endif %}
-    </main>
+        <div class="adoption-home-view">
+            <h2>Free homes for animals in need</h2>
+            <div class="cards">
+                {% for home in adoptionhomemodel_list %}
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ home.picture.url }}" alt="None">
+                        </div>
+                        <div class="text">
+                            <h2>{{ home.title }}</h2>
+                            <ul>
+                                <li>Province: {{ home.province }}</li>
+                                <li>City: {{ home.city }}</li>
+                                <li>It is good for {{ home.animal_type }}</li>
+                            </ul>
+                            <button class="btn-adoption-homes"><a href="{{ home.get_absolute_url }}">More
+                                Details</a></button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
