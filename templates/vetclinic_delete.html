@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block content %}
-    <main>
+    <div class="vetclinic-delete">
         <form action="{% url 'vetclinic_delete' object.pk %}" enctype="multipart/form-data" method="post">
             {% csrf_token %}
             <p>Will you delete this animal from vetclinic</p>
             <button type="submit">DELETE!!!</button>
         </form>
-    </main>
+    </div>
 {% endblock %}

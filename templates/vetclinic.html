@@ -6,8 +6,8 @@
         <button class="btn-vetclinic-create"><a href="{% url 'vetclinic_create' %}">Create</a></button>
         <div class="vetclinic-view-animals">
             {% if animalatvetclinic_list %}
-                {% for animal in animalatvetclinic_list %}
-                    <div class="cards">
+                <div class="cards">
+                    {% for animal in animalatvetclinic_list %}
                         <div class="card">
                             <div class="img">
                                 <img src="{{ animal.pictures.url }}" alt="None">
@@ -22,8 +22,8 @@
                                         href="{% url 'vetclinic_details' animal.pk %}">More Details</a></button>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             {% else %}
                 <p>No animals</p>
             {% endif %}

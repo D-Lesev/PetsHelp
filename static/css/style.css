@@ -190,6 +190,8 @@ figure.petshop-view {
   color: darkorange;
 }
 
+.vetclinic-edit-form,
+.vetclinic-delete,
 .vetclinic-create,
 .animal-adopt-form,
 .adoption-create,
@@ -209,6 +211,7 @@ figure.petshop-view {
   text-align: center;
 }
 
+.vetclinic-edit-form form label,
 .vetclinic-create form label,
 .animal-adopt-form form label,
 .adoption-create form label,
@@ -222,6 +225,7 @@ figure.petshop-view {
   font-size: 20px;
 }
 
+.vetclinic-edit-form form input,
 .vetclinic-create form input,
 .animal-adopt-form form input,
 .adoption-create form input,
@@ -289,7 +293,15 @@ figure.petshop-view {
   margin:30px;
 }
 
+.vetclinic-view-animals .cards,
+.adoption-pets .cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
+.vetclinic-view-animals .card,
 .adoption-pets .card {
   background: white;
   border-radius: 20px;
@@ -506,6 +518,7 @@ figure.petshop-view {
   background-color: black;
 }
 
+.vetclinic-edit-form button,
 .pet-shop-edit-form button {
   width: 150px;
   height: 50px;
@@ -515,6 +528,7 @@ figure.petshop-view {
   font-weight: bolder;
   background-color: green;
   margin-top: 10px;
+  color: white;
 }
 
 .pet-shop-edit a {
@@ -528,6 +542,7 @@ figure.petshop-view {
   color: chartreuse;
 }
 
+.vetclinic-delete button,
 .pet-shop-delete button {
   width: 150px;
   height: 50px;
@@ -547,9 +562,9 @@ figure.petshop-view {
   flex-wrap: wrap;
   align-items: center;
   gap: 50px;
+  margin-top: 160px;
 }
 
-.vetclinic-view .btn-vetclinic-create,
 .adoption-view .btn-adoption-create {
   width: 270px;
   height: 60px;
@@ -558,7 +573,18 @@ figure.petshop-view {
   font-size: 17px;
   font-weight: bolder;
   background-color: darkred;
-  margin-top: -410px;
+  margin-top: -130px;
+}
+
+.vetclinic-view .btn-vetclinic-create {
+  width: 270px;
+  height: 60px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  font-weight: bolder;
+  background-color: darkred;
+  margin-top: -130px;
 }
 
 .vetclinic-view .btn-vetclinic-create {
@@ -592,11 +618,14 @@ figure.petshop-view {
 
 .vetclinic-details-item .add-info_item ul {
   list-style-type: none;
+  padding: 0;
 }
 
 .vetclinic-details-item .add-info_item {
   text-align: center;
   color: white;
+  padding: 5px;
+  margin: auto;
 }
 
 .vetclinic-details .vetclinic-details-btns {

@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block content %}
-    <main>
+    <div class="vetclinic-edit-form">
         <form action="{% url 'vetclinic_edit' object.pk %}" enctype="multipart/form-data" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">SAVE!!!</button>
+            <button type="submit">Save</button>
         </form>
-    </main>
+    </div>
 {% endblock %}

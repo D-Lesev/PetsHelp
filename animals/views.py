@@ -89,6 +89,7 @@ class VetClinicCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+
         return super().form_valid(form)
 
 
@@ -104,12 +105,19 @@ class VetClinicEdit(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def get_success_url(self):
         pk = self.kwargs['pk']
+
         return reverse('vetclinic_details', kwargs={'pk': pk})
 
     def test_func(self):
         vetclinic_animal = self.get_object()
 
         return vetclinic_animal.user == self.request.user
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields.pop("pictures")
+
+        return form
 
 
 class VetClinicDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):

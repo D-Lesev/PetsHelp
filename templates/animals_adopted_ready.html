@@ -7,8 +7,8 @@
         </button>
         <div class="adoption-pets">
             <h1>Pets, ready for adoption</h1>
-            {% for pet in animaladoptreadycreate_list %}
-                <div class="cards">
+            <div class="cards">
+                {% for pet in animaladoptreadycreate_list %}
                     <div class="card">
                         <div class="img">
                             <img src="{{ pet.picture.url }}" alt="{{ pet.animal_name }}">
@@ -27,8 +27,8 @@
                             <button><a href="{% url 'adopt_form' pet.pk %}">Send Request for Adoption</a></button>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
