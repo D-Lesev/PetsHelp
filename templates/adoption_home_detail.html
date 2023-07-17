@@ -2,17 +2,25 @@
 {% load static %}
 
 {% block content %}
-    <main>
-        {% if object.description %}
-            <p>Details: {{ object.description }}</p>
-        {% endif %}
-        <p>The home is free from {{ object.start_period }}</p>
-        {% if home.end_period %}
-        <p>End period will be {{ object.end_period }}</p>
-        {% else %}
-        <p>End period will be {{ object.end_period }}</p>
-        {% endif %}
-        <p>The home is kindly provided from our member: {{ object.user.first_name }}</p>
-        <img src="{{ object.picture.url }}" alt="Home picture">
-    </main>
+    <div class="adoption-home-details">
+        <div class="adoption-home-item">
+            <div class="item-img">
+                <img src="{{ object.picture.url }}" alt="Home picture">
+            </div>
+            <div class="adoption-info">
+                <h1>{{ object.title }}</h1>
+                <p>Province: {{ object.province }}</p>
+                <p>City: {{ object.city }}</p>
+                <p>The home is suitable for {{ object.animal_type }}</p>
+                {% if object.description %}
+                    <p>Details: {{ object.description }}</p>
+                {% endif %}
+                <p>The home is free from {{ object.start_period }}</p>
+                {% if home.end_period %}
+                    <p>End period will be {{ object.end_period }}</p>
+                {% endif %}
+                <p>The home is kindly provided from our member: {{ object.user.first_name }}</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -2,16 +2,32 @@
 {% load static %}
 
 {% block content %}
-    <main>
-        <button><a href="{% url 'help_animals_create' %}">Share</a></button>
-        {% for pet in shareanimalmodel_list %}
-            <h1>{{ pet.title }}</h1>
-            <p>{{ pet.user.first_name }}</p>
-            <p>{{ pet.notes }}</p>
-            <p>{{ pet.province }}</p>
-            <p>{{ pet.city }}</p>
-            <p><img src="{{ pet.main_photo.url }}" alt="photo" style="width: 300px; height: 400px"></p>
-            <button><a href="{% url 'help_animals_detail' pet.pk %}">Click</a></button>
-        {% endfor %}
-    </main>
+    <div class="share-animal-view">
+        {% if user.is_authenticated %}
+            <button class="btn-share-animals"><a href="{% url 'help_animals_create' %}">Share</a></button>
+        {% endif %}
+        <div class="share-animal">
+            <h1 class="title">Animals</h1>
+            <div class="cards">
+                {% for pet in shareanimalmodel_list %}
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ pet.main_photo.url }}" alt="photo">
+                        </div>
+                        <div class="text">
+                            <h1>{{ pet.title }}</h1>
+                            <ul>
+                                <li>{{ pet.user.first_name }}</li>
+                                <li>{{ pet.notes }}</li>
+                                <li>{{ pet.province }}</li>
+                                <li>{{ pet.city }}</li>
+                            </ul>
+                            <button><a href="{% url 'help_animals_detail' pet.pk %}">Click</a></button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
+

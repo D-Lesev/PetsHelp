@@ -308,6 +308,7 @@ div.adoption-homes {
   margin:30px;
 }
 
+.share-animal .cards,
 .adopted-pets .cards,
 .vetclinic-view-animals .cards,
 .adoption-pets .cards {
@@ -317,6 +318,7 @@ div.adoption-homes {
   flex-wrap: wrap;
 }
 
+.share-animal .card,
 .adopted-pets .card,
 .vetclinic-view-animals .card,
 .adoption-pets .card {
@@ -447,6 +449,7 @@ div.adoption-homes {
   color: maroon;
 }
 
+.adoption-home-details,
 .vetclinic-details,
 .pet-shop-detail {
   display: flex;
@@ -484,6 +487,7 @@ div.adoption-homes {
   color: white;
 }
 
+.adoption-home-item,
 .vetclinic-details-item,
 .pet-shop-item {
   display: flex;
@@ -492,6 +496,7 @@ div.adoption-homes {
   gap: 90px;
 }
 
+.adoption-home-item .item-img,
 .vetclinic-details-item .item-img,
 .pet-shop-item .item-img {
   display: inline-block;
@@ -508,6 +513,7 @@ div.adoption-homes {
   object-fit: cover;
 }
 
+.adoption-info,
 .add-info_item {
   display: inline-block;
   width: 400px;
@@ -516,6 +522,7 @@ div.adoption-homes {
   border: 4px dashed crimson;
 }
 
+.adoption-info h1,
 .add-info_item h1 {
   color: #12c2e9;
 }
@@ -572,6 +579,7 @@ div.adoption-homes {
   color: white;
 }
 
+.share-animal-view,
 .adopted-happy-pets,
 .vetclinic-view,
 .adoption-view {
@@ -583,6 +591,7 @@ div.adoption-homes {
   margin-top: 160px;
 }
 
+.share-animal-view .btn-share-animals,
 .adopted-happy-pets .btn-adopted-happy-pets,
 .adoption-view .btn-adoption-create {
   width: 290px;
@@ -617,6 +626,7 @@ div.adoption-homes {
   margin-top: -250px;
 }
 
+.share-animal-view .btn-share-animals a,
 .adopted-happy-pets .btn-adopted-happy-pets a,
 .vetclinic-view .btn-vetclinic-create a,
 .adoption-view .btn-adoption-create a {
