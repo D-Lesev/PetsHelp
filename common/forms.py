@@ -34,3 +34,22 @@ class ShareAnimalForm(forms.ModelForm):
     class Meta:
         model = ShareAnimalModel
         exclude = ['user']
+
+        fields = [
+            "title",
+            "notes",
+            "province",
+            "city",
+            "main_photo"
+        ]
+
+        widgets = {
+            "province": forms.TextInput(attrs={'placeholder:': "Only",
+                                               "class": "custom-share-img"}),
+            "city": forms.TextInput(attrs={'placeholder:': "Only if there is no GPS geotagging in the picture",
+                                           "class": "custom-share-img"}),
+        }
+
+        labels = {
+            "main_photo": "Picture (if possible with geotagging)"
+        }

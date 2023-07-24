@@ -197,6 +197,7 @@ div.adoption-homes {
   color: darkorange;
 }
 
+.help-animals-create,
 .adoption-home-create,
 .happy-adopted-create,
 .vetclinic-edit-form,
@@ -220,6 +221,7 @@ div.adoption-homes {
   text-align: center;
 }
 
+.help-animals-create form label,
 .adoption-home-create form label,
 .happy-adopted-create form label,
 .vetclinic-edit-form form label,
@@ -236,6 +238,7 @@ div.adoption-homes {
   font-size: 20px;
 }
 
+.help-animals-create form input,
 .adoption-home-create form input,
 .happy-adopted-create form input,
 .vetclinic-edit-form form input,
@@ -273,6 +276,7 @@ div.adoption-homes {
   color: red;
 }
 
+.help-animals-create button[type='submit'],
 .adoption-home-create button[type='submit'],
 .happy-adopted-create button[type='submit'],
 .vetclinic-create button[type='submit'],
@@ -743,3 +747,14 @@ div.adoption-homes {
   background-color: crimson;
 }
 
+.help-animals-create .warning-text {
+  color: chartreuse;
+  padding: 5px;
+  margin: 8px;
+  font-size: 15px;
+  background-color: #2C3E50;
+}
+
+.help-animals-create button[type='submit'] {
+  width: 300px;
+}

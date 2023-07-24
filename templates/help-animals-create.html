@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block content %}
-    <main>
+    <div class="help-animals-create">
         <form action="{% url 'help_animals_create' %}" enctype="multipart/form-data" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Submit</button>
         </form>
-    </main>
+        <h5 class="warning-text">** In order to have the proper GPS coordinates, make sure you turned
+            on geotagging of the camera when taking pictures!</h5>
+    </div>
 {% endblock %}
