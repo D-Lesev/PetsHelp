@@ -500,6 +500,22 @@ div.adoption-homes {
   gap: 90px;
 }
 
+.share-animal_view {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 90px;
+}
+
+.share-animal_view .item-img {
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  border: 4px dashed lawngreen;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .adoption-home-item .item-img,
 .vetclinic-details-item .item-img,
 .pet-shop-item .item-img {
@@ -653,6 +669,13 @@ div.adoption-homes {
 .vetclinic-details-item .add-info_item ul {
   list-style-type: none;
   padding: 0;
+}
+
+.share-animal_view .add-info_item {
+  text-align: center;
+  color: white;
+  padding: 5px;
+  margin: auto;
 }
 
 .vetclinic-details-item .add-info_item {

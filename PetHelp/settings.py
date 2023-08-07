@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from .utils import get_password_email
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -143,6 +143,6 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "danaillesev@gmail.com"
-EMAIL_HOST_PASSWORD = get_password_email()
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
