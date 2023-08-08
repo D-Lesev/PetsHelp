@@ -37,9 +37,6 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary" href="{% url 'help_animals' %}">Share Animal</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary" href="#">Contacts</a>
-                    </li>
                     {% if not user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link btn btn-primary" href="{% url 'login' %}">Sign In</a>

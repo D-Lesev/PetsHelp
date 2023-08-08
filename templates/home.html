@@ -17,7 +17,11 @@
     {% else %}
         <h2 class="home-h2">Welcome back {{ request.user.get_full_name }}</h2>
 
-        <p>View this <a href="{% url 'petshop' %}">Petshop</a></p>
+        <div class="shop-titles">
+            <p style="color: greenyellow; font-size: 30px">
+                Check out our <a href="{% url 'petshop' %}" style="text-decoration: none;">Petshop</a> or help an animal
+            <a href="{% url 'help_animals_create' %}" style="text-decoration: none;">HERE</a></p>
+        </div>
     {% endif %}
 
 {% endblock %}
