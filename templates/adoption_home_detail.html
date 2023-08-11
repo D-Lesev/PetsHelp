@@ -16,9 +16,7 @@
                     <p>Details: {{ object.description }}</p>
                 {% endif %}
                 <p>The home is free from {{ object.start_period }}</p>
-                {% if home.end_period %}
-                    <p>End period will be {{ object.end_period }}</p>
-                {% endif %}
+                <p>End period will be {{ object.end_period }}</p>
                 <p>The home is kindly provided from our member: {{ object.user.first_name }}</p>
             </div>
         </div>

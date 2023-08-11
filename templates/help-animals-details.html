@@ -5,9 +5,10 @@
     <div class="share-animal_view">
         <div class="add-info_item">
             <h1>{{ object.title }}</h1>
-            <h2>{{ object.user.get_full_name }}</h2>
-            <p>{{ object.province }}</p>
-            <p>{{ object.city }}</p>
+            <h2>Founder: {{ object.user.get_full_name }}</h2>
+            <p>Province: {{ object.province }}</p>
+            <p>City: {{ object.city }}</p>
+            <p>Contact: {{ user.phone }}</p>
         </div>
         <div class="item-img">
             <img src="{{ object.main_photo.url }}" alt="photo">

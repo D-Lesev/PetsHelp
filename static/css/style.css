@@ -276,6 +276,24 @@ div.adoption-homes {
   color: red;
 }
 
+.profile-pic-frame {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #ffffff;
+    border: 2px solid red;
+}
+
+.profile-pic-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
 .help-animals-create button[type='submit'],
 .adoption-home-create button[type='submit'],
 .happy-adopted-create button[type='submit'],

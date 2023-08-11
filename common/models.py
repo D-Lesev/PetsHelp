@@ -46,7 +46,7 @@ class AdoptionHomeModel(models.Model):
     animal_type = models.CharField(max_length=30, choices=animal_choice)
     description = models.TextField(blank=True)
     start_period = models.DateField()
-    end_period = models.DateField(blank=True)
+    end_period = models.DateField()
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     def __str__(self):
